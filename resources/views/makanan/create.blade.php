@@ -19,12 +19,18 @@
                                 <input type="text" name="judul" class="form-control" id="inputProductTitle"
                                     placeholder="Enter product judul" value="{{ old('judul') }}">
                             </div>
+                            @error('judul')
+                            <div class="text-danger mt-1">{{ $message }}</div>
+                        @enderror
                             <div class="mb-3">
                                 <label for="inputProductDescription" class="form-label">
                                     <i class="fas fa-file-alt"></i> Deskripsi
                                 </label>
                                 <textarea class="form-control" id="inputProductDescription" rows="3" name="deskripsi">{{ old('deskripsi') }}</textarea>
                             </div>
+                            @error('deskripsi')
+                                 <div class="text-danger mt-1">{{ $message }}</div>
+                             @enderror
                             <div class="mb-3">
                                 <label for="image-uploadify" class="form-label">
                                     <i class="fas fa-images"></i> Product Images
@@ -46,19 +52,25 @@
                                     <input type="number" class="form-control" id="inputCostPerPrice"
                                         name="harga" placeholder="Enter Price" value="{{ old('harga') }}">
                                 </div>
-                                <div class="col-12">
-                                    <label for="selectKategori" class="form-label">
-                                        <i class="fas fa-tags"></i> Select Category
-                                    </label>
-                                    <select name="category_id" id="selectKategori" class="form-control">
-                                        <option value="" disabled selected>Select Category</option>
-                                        @foreach ($data_category as $category)
-                                            <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
-                                                {{ $category->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                @error('harga')
+                                <div class="text-danger mt-1">{{ $message }}</div>
+                            @enderror
+                            <div class="col-12">
+                                <label for="selectKategori" class="form-label">
+                                    <i class="fas fa-tags"></i> Select Category
+                                </label>
+                                <select name="category_id" id="selectKategori" class="form-control">
+                                    <option value="" disabled selected>Select Category</option>
+                                    @foreach ($data_category as $category)
+                                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('category_id')
+                                    <div class="text-danger mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
                                 <div class="col-12">
                                     <label for="inputStock" class="form-label">
                                         <i class="fas fa-box"></i> Stock
@@ -66,6 +78,9 @@
                                     <input type="number" class="form-control" id="inputStock"
                                         placeholder="Enter Stock" name="stock" value="{{ old('stock') }}">
                                 </div>
+                                @error('stock')
+                                <div class="text-danger mt-1">{{ $message }}</div>
+                            @enderror
                                 <div class="col-12">
                                     <div class="d-grid">
                                         <button type="submit" class="btn btn-primary" >
@@ -73,6 +88,7 @@
                                         </button>
                                     </div>
                                 </div>
+                              
                             </div>
                         </div>
                     </div>

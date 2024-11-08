@@ -3,6 +3,7 @@
 @section('content')
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5">
+        @if(auth()->user()->hasRole('admin'))
         <div class="col">
             <div class="card radius-10 overflow-hidden">
                 <div class="card-body">
@@ -65,35 +66,69 @@
                 <div class="mt-1" id="chart4"></div>
             </div>
         </div>
-        <div class="col">
-            <div class="card radius-10 overflow-hidden">
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-                        <div>
-                            <p class="mb-0 text-secondary font-14">pemesanan</p>
-                            <h5 class="my-0">{{$data_pemesanan}} </h5>
-                        </div>
-                        <div class="text-info ms-auto font-30"><i class='bx bx-file'></i></div>
-                    </div>
-                </div>
-                <div class="mt-1" id="chart5"></div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card radius-10 border-start border-0 border-3 border-warning">
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-                        <div>
-                            <p class="mb-0 text-secondary"><a href="?p=peminjaman">detail transaksi</a></p>
-                            <h4 class="my-1 text-warning"> {{$detail_transaksi}} </h4>
-                        </div>
-                        <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto">
-                            <i class='bx bx-book-open'></i>
+        @else
+            <div class="col">
+                <div class="card radius-10 overflow-hidden">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <a href="?p=buku">
+                                    <p class="mb-0 text-secondary font-14">Total makanan</p>
+                                </a>
+                                <h5 class="my-0">{{ $total_makanan }} </h5>
+                            </div>
+                            <div class="text-danger ms-auto font-30"><i class='fa fa-book'></i></div>
                         </div>
                     </div>
+                    <div class="mt-1" id="chart2"></div>
+                </div>
+            </div>   
+            <div class="col">
+                <div class="card radius-10 overflow-hidden">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <p class="mb-0 text-secondary font-14">Ulasan</p>
+                                <h5 class="my-0">{{$total_ulasan}} </h5>
+                            </div>
+                            <div class="text-warning ms-auto font-30"><i class='bx bx-comment'></i></div>
+                        </div>
+                    </div>
+                    <div class="mt-1" id="chart4"></div>
                 </div>
             </div>
-        </div>
+            <div class="col">
+                <div class="card radius-10 overflow-hidden">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <p class="mb-0 text-secondary font-14">pemesanan</p>
+                                <h5 class="my-0">{{$data_pemesanan}} </h5>
+                            </div>
+                            <div class="text-info ms-auto font-30"><i class='bx bx-file'></i></div>
+                        </div>
+                    </div>
+                    <div class="mt-1" id="chart5"></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card radius-10 border-start border-0 border-3 border-warning">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <p class="mb-0 text-secondary"><a href="?p=peminjaman">detail transaksi</a></p>
+                                <h4 class="my-1 text-warning"> {{$detail_transaksi}} </h4>
+                            </div>
+                            <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto">
+                                <i class='bx bx-book-open'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        @endif
+      
     </div>
 
 

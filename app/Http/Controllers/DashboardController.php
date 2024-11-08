@@ -25,7 +25,7 @@ class DashboardController extends Controller
         $detail_transaksi = DetailTranskasi::where('user_id', auth()->user()->id)->count() ? : 0;
         return view('dashboard', compact('total_category',
          'total_makanan',
-          'total_user',
+        'total_user',
         'total_ulasan', 'data_pemesanan', 'detail_transaksi'));
     }
 }

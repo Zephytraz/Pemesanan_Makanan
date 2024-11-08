@@ -25,11 +25,11 @@ class CategoryController extends Controller
         ]);
         $category = Category::where('name', $data['name'])->exists();
         if($category){
-            session()->flash('error', 'gagal tambah category');
-        }else{
-            Category::create($data);
-            session()->flash('success', 'berhasil tambah category');
+            session()->flash('error', 'gagal update category');
         }
+        
+            Category::create($data);
+            session()->flash('success', 'berhasil update category');
         return back();
     }
     
@@ -38,15 +38,15 @@ class CategoryController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:50'
         ]);
-        $category = Category::where('name', $data['name'])->exists();
+        $category_id = Category::findOrFail($id);
+        $category = Category::where('name', $data['name'])->where('id', '!=', $id)->exists();
         if($category){
-            session()->flash('error', 'gagal tambah category');
+            session()->flash('error', 'gagal update category');
         }else{
-            Category::findOrFail($id)->update($data);
-            session()->flash('success', 'berhasil tambah category');
+            $category_id->update($data);
+            session()->flash('success', 'berhasil update category');
         }
         return back();
-
     }
 
     /**

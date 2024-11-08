@@ -1,7 +1,6 @@
 @extends('template.index')
 
 @section('content')
-<div class="container">
     <h1 class="my-4">Daftar Pemesanan Saya</h1>
 
     @if(session('success'))
@@ -39,5 +38,4 @@
             </tbody>
         </table>
     @endif
-</div>
 @endsection

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ListUserController extends Controller
 {
     public function index(){
-        $data = User::all();
+        $data = User::where('email',  '!=', 'admin@gmail.com')->get( );
         return view('list_user.index', compact('data'));
     }   
     public function destroy(string $id){

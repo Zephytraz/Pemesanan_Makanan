@@ -17,6 +17,5 @@ class MakananFavorit extends Model
     public function makanan()
     {
         return $this->belongsTo(Makanan::class, 'makanan_id');
-    }
-    
+    }   
 }
