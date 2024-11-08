@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailLoginController;
 use App\Http\Controllers\DetailTransaksiController;
 use App\Http\Controllers\ListUserController;
@@ -53,8 +54,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('/ulasan', UlasanController::class)->only('index', 'show');
     // makanan favorit
     Route::resource('/makananfavorit', MakananFavoritController::class)->only('index');
-
     Route::post('/profile/saldo', [SaldoController::class, 'update'])->name('saldo.update');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
  
 });
 require __DIR__.'/auth.php';
