@@ -41,10 +41,10 @@ class AuthenticatedSessionController extends Controller
             detail_login::create([
                 'user_id' => $user->id,
                 'ip_address' => $ip_address,
-                'login' => now()->setTimezone('Asia/jakarta')
+                'login_time' => now()->setTimezone('Asia/jakarta')
             ]);
         }
-        return redirect()->intended(route('dashboard', absolute: false));
+        return redirect()->route('dashboard.index');
     }
 
     /**
