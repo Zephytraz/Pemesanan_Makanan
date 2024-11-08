@@ -39,9 +39,9 @@
                                 @else
                                     Stock: {{ $item->makanan->stock }}
                                     <br>
-                                    <small class="text-muted">Likes: {{ $likes[$item->makanan->id] ?? 0 }}</small>
-                                @endif
-                            </p>
+                                    @endif
+                                </p>
+                                <small class="text-muted">Likes: {{ $likes[$item->makanan->id] ?? 0 }}</small>
                         </div>
                         <div class="card-footer d-flex justify-content-between align-items-center bg-white">
                             <a href="{{route('makanan.show', $item->makanan->id)}}" class="btn btn-outline-secondary btn-sm">

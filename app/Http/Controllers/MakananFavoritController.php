@@ -40,7 +40,4 @@ class MakananFavoritController extends Controller
         MakananFavorit::findOrFail($id)->delete();
         return back();
     }
-
-    
- 
 }

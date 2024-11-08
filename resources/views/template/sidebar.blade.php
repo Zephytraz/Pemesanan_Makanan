@@ -48,6 +48,20 @@
                             <div class="menu-title">User List</div> <!-- Mengubah "Daftar User" menjadi "User List" -->
                         </a>
                     </li>
+                    <li>
+                        <a class="" href="{{route('ulasan.index')}}">
+                            <div class="parent-icon"><i class="bx bx-repeat"></i>
+                            </div>
+                            <div class="menu-title">ulasan</div> <!-- Mengubah "Ulasan" menjadi "Reviews" -->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('makananfavorit.index')}}" class="">
+                            <div class="parent-icon fa fa-heart"> <!-- Ikon hati untuk Favorit Books -->
+                            </div>
+                            <div class="menu-title">Favorit makanan</div>
+                        </a>
+                    </li>
                 @else
                     <li>
                         <a href="{{route('makanan.index')}}" class="">
@@ -56,30 +70,35 @@
                             <div class="menu-title">makanan</div> <!-- Mengubah "Buku" menjadi "Books" -->
                         </a>
                     <li>
+                        <li>
+                            <a class="" href="{{route('ulasan.index')}}">
+                                <div class="parent-icon"><i class="bx bx-repeat"></i>
+                                </div>
+                                <div class="menu-title">ulasan</div> <!-- Mengubah "Ulasan" menjadi "Reviews" -->
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('makananfavorit.index')}}" class="">
+                                <div class="parent-icon fa fa-heart"> <!-- Ikon hati untuk Favorit Books -->
+                                </div>
+                                <div class="menu-title">Favorit makanan</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="{{route('pemesanan.index')}}">
+                                <div class="parent-icon"><i class="fa fa-message"></i>
+                                </div>
+                                <div class="menu-title">pemesanan</div> <!-- Mengubah "Laporan" menjadi "Reports" -->
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="{{route('detail.transaksi')}}">
+                                <div class="parent-icon"><i class="fa fa-message"></i>
+                                </div>
+                                <div class="menu-title">detail transaksi</div> <!-- Mengubah "Laporan" menjadi "Reports" -->
+                            </a>
+                        </li>
                 @endif
-            
-                <li>
-                    <a class="" href="{{route('ulasan.index')}}">
-                        <div class="parent-icon"><i class="bx bx-repeat"></i>
-                        </div>
-                        <div class="menu-title">ulasan</div> <!-- Mengubah "Ulasan" menjadi "Reviews" -->
-                    </a>
-                </li>
-                <li>
-                    <a href="{{route('makananfavorit.index')}}" class="">
-                        <div class="parent-icon fa fa-heart"> <!-- Ikon hati untuk Favorit Books -->
-                        </div>
-                        <div class="menu-title">Favorit makanan</div>
-                    </a>
-                </li>
-               
-                <li>
-                    <a class="" href="">
-                        <div class="parent-icon"><i class="fa fa-message"></i>
-                        </div>
-                        <div class="menu-title">Reports</div> <!-- Mengubah "Laporan" menjadi "Reports" -->
-                    </a>
-                </li>
         </ul>
     </div>
 </div>

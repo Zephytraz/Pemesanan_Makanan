@@ -1,4 +1,5 @@
 {{-- add ulasan --}}
+@foreach($data as $item)
 <div class="modal fade" id="add_ulasan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -33,7 +34,7 @@
       </div>
     </div>
   </div>
-  
+  @endforeach
 
   {{-- pembelian --}}
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -55,20 +56,26 @@
 </div>
 
 
-{{-- pembelian --}}
-<div class="modal fade" id="pembelian" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Beri Ulasan</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-         <form action="#">
-          <label for="" >mau beli berapa makanannya</label>
-          <input type="number" name="" class="form-control">
-         </form>
+{{-- pemesanan --}}
+@foreach($data as $item)
+  <div class="modal fade" id="pembelian{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Beri Ulasan</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="{{ route('pemesanan.store') }}" method="POST">
+            @csrf
+            <input type="hidden" name="makanan_id" value="{{ $item->id }}">
+            <label for="jumlah_pesanan">Mau beli berapa makanannya</label>
+            <input type="number" name="jumlah_pesanan" class="form-control" min="1" max="{{ $item->stock }}" required>
+            <button type="submit" class="btn btn-primary mt-3">Beli</button>
+          </form>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
+@endforeach
