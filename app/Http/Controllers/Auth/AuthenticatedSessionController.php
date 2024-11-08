@@ -44,7 +44,7 @@ class AuthenticatedSessionController extends Controller
                 'login' => now()->setTimezone('Asia/jakarta')
             ]);
         }
-        return redirect()->intended(route('dashboard', absolute: false));
+        return redirect()->route('dashboard.index');
     }
 
     /**
